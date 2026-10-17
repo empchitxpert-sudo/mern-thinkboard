@@ -12,6 +12,12 @@ connectDB();
 
 // Middleware to parse JSON request bodies
 app.use(express.json());
+app.use(rateLimiter);
+
+// Custom middleware to log request method and URL
+// app.use((req, res, next) => {
+//     console.log(`Request method is ${req.method} & Request URL is ${req.url}`);
+// })
 
 app.use("/api/notes", notesRoutes);
 
